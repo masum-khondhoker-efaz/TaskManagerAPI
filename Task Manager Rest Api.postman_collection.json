@@ -1,0 +1,378 @@
+{
+	"info": {
+		"_postman_id": "2415792c-0d22-4b0f-9e4e-53309daf7b44",
+		"name": "Task Manager Rest Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36263256"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Registration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"efazkh1@gmail.com\",\r\n    \"firstName\":\"Efaz\",\r\n    \"lastName\":\"Khondhoker\",\r\n    \"mobile\":\"01840555557\",\r\n    \"password\":\"1234567\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/Registration",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"Registration"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"efazkh@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/Login",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"Login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ProfileDetails",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/ProfileDetails",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"ProfileDetails"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ProfileUpdate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"mefaz201108@bscse.uiu.ac.bd\",\r\n    \"firstName\":\"Efaz\",\r\n    \"lastName\":\"Khondhoker\",\r\n    \"mobile\":\"018405555579\",\r\n    \"password\":\"1234567\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/ProfileUpdate",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"ProfileUpdate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EmailVerify",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{TOKEN}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/EmailVerify/efazkh@gmail.com",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"EmailVerify",
+								"efazkh@gmail.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CodeVerify",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"efazkh@gmail.com\",\r\n    \"otp\":\"807158\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/CodeVerify",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"CodeVerify"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ResetPassword",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"mefaz201108@bscse.uiu.ac.bd\",\r\n    \"otp\":\"163456\",\r\n    \"password\":\"abc1234567\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/ResetPassword",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"ResetPassword"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tasks",
+			"item": [
+				{
+					"name": "CreateTask",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"ABC\",\r\n    \"description\":\"ABC\",\r\n    \"status\":\"new\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/CreateTask",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"CreateTask"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateTaskStatus",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/UpdateTaskStatus/66e01094360ec63495742123/rm",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"UpdateTaskStatus",
+								"66e01094360ec63495742123",
+								"rm"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TaskListStatus",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/TaskListStatus/rm",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"TaskListStatus",
+								"rm"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteTask",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/DeleteTask/66e01094360ec63495742123",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"DeleteTask",
+								"66e01094360ec63495742123"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TaskListCounting",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/TaskListCounting",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"TaskListCounting"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http://localhost:5000/api",
+			"type": "string"
+		},
+		{
+			"key": "TOKEN",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVmYXpraEBnbWFpbC5jb20iLCJ1c2VyX2lkIjoiNjZkZTg4YzliMTdhZWQxOTk4NTUyMjUzIiwiaWF0IjoxNzI1OTU3OTI5LCJleHAiOjE3Mjg1NDk5Mjl9.U_XM3Wtx7wrT-Z-Y4YEulYUICF5uywcOmlIlzhRfrUI",
+			"type": "string"
+		}
+	]
+}
